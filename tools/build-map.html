@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Bangun Peta Provinsi — World Dominion V.I</title>
+<link rel="stylesheet" href="../dashboard.css"></head>
+<body class="domain-body">
+<main class="domain-main" style="max-width:760px;margin:0 auto">
+  <div class="domain-heading"><div><p class="eyebrow">PETA / CARA MANUAL</p><h1>🗺️ Bangun Peta Provinsi</h1>
+  <p class="muted">Cara manual untuk membuat peta ±789 provinsi dari data Natural Earth admin-1. Hasilnya disimpan di browser (IndexedDB) — cukup sekali, lalu peta langsung tampil di halaman Peta Dunia.</p></div></div>
+
+  <section class="card">
+    <h2>1 · Unduh &amp; bangun dari internet</h2>
+    <p class="muted">Mengunduh GeoJSON Natural Earth (±40 MB) lalu membangun peta di browser ini. Butuh koneksi internet.</p>
+    <button id="build-cdn" class="primary-button" type="button">Bangun peta provinsi dari CDN</button>
+    <p id="build-log" class="small-note" role="status"></p>
+  </section>
+
+  <section class="card">
+    <h2>2 · Atau pakai file GeoJSON sendiri</h2>
+    <p class="muted">Pilih file <b>ne_10m_admin_1_states_provinces.geojson</b> yang sudah diunduh (dari <span class="mono">https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson</span>).</p>
+    <label>File GeoJSON <input id="file-input" type="file" accept=".geojson,.json,application/json"></label>
+    <p id="file-log" class="small-note" role="status"></p>
+  </section>
+
+  <section class="card">
+    <h2>3 · Unduh file data (untuk pengelola game)</h2>
+    <p class="muted">Setelah peta berhasil dibangun, tombol ini mengunduh <b>world-provinces.js</b>. Simpan file itu ke folder <b>data/</b> game agar semua pemain langsung mendapat peta tanpa membangun sendiri.</p>
+    <button id="download-script" class="primary-button" type="button" disabled>Unduh world-provinces.js</button>
+    <p class="top-gap"><a class="icon-link" href="../world.html" style="width:auto;padding:10px 14px">← Kembali ke Peta Dunia</a>
+    <a class="icon-link" href="../index.html" style="width:auto;padding:10px 14px">Dashboard</a></p>
+  </section>
+</main>
+<script src="province-builder.js"></script>
+<script src="../worldlib.js"></script>
+<script>
+(function () {
+  "use strict";
+  var NE_URLS = [
+    "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_1_states_provinces.geojson",
+    "https://cdn.jsdelivr.net/gh/nvkelso/natural-earth-vector@master/geojson/ne_10m_admin_1_states_provinces.geojson"
+  ];
+  var lastData = null;
+  var logEl = document.getElementById("build-log");
+  var fileLogEl = document.getElementById("file-log");
+  function log(el, t) { el.textContent = t; }
+  function enableDownload(data) {
+    lastData = data;
+    document.getElementById("download-script").disabled = false;
+  }
+  function finish(data, el) {
+    log(el, "Selesai: " + data.count + " provinsi (target " + data.target + "). Memuat ulang peta…");
+    enableDownload(data);
+    setTimeout(function () { location.href = "../world.html"; }, 900);
+  }
+  function buildAndSave(json, el, btn) {
+    if (btn) btn.disabled = true;
+    log(el, "Memproses & menyederhanakan…");
+    setTimeout(function () {
+      try {
+        var data = ProvinceBuilder.build(json, { target: window.WorldLib.MAP_TARGET });
+        window.WorldLib.saveData(data).then(function () { finish(data, el); }).catch(function () {
+          // Browser tidak mengizinkan penyimpanan: tawarkan file untuk diunduh.
+          enableDownload(data);
+          log(el, "Selesai: " + data.count + " provinsi. Browser tidak mengizinkan penyimpanan otomatis — unduh world-provinces.js di bawah lalu simpan ke folder data/.");
+          if (btn) btn.disabled = false;
+        });
+      } catch (e) {
+        log(el, "Gagal: " + e.message);
+        if (btn) btn.disabled = false;
+      }
+    }, 30);
+  }
+  document.getElementById("build-cdn").addEventListener("click", function () {
+    var btn = this;
+    (async function () {
+      var json = null, lastErr = "";
+      for (var i = 0; i < NE_URLS.length; i++) {
+        try {
+          log(logEl, "Mengunduh data provinsi dunia… (±40 MB, tunggu sebentar)");
+          var r = await fetch(NE_URLS[i]);
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          json = await r.json();
+          break;
+        } catch (e) { lastErr = e.message; }
+      }
+      if (!json) { log(logEl, "Unduhan gagal (" + lastErr + "). Periksa koneksi atau pakai file GeoJSON sendiri di bawah."); return; }
+      buildAndSave(json, logEl, btn);
+    })();
+  });
+  document.getElementById("file-input").addEventListener("change", function () {
+    var file = this.files && this.files[0];
+    if (!file) return;
+    log(fileLogEl, "Membaca " + file.name + " …");
+    var reader = new FileReader();
+    reader.onload = function () {
+      try { buildAndSave(JSON.parse(reader.result), fileLogEl, null); }
+      catch (e) { log(fileLogEl, "Gagal membaca file: " + e.message); }
+    };
+    reader.onerror = function () { log(fileLogEl, "Gagal membaca file."); };
+    reader.readAsText(file);
+  });
+  document.getElementById("download-script").addEventListener("click", function () {
+    if (!lastData) return;
+    var blob = new Blob([ProvinceBuilder.toScript(lastData)], { type: "text/javascript" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "world-provinces.js";
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+  });
+})();
+</script>
+</body></html>
