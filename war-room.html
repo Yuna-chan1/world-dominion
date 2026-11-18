@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ruang Perang — World Dominion V.I</title><link rel="stylesheet" href="dashboard.css"><link rel="stylesheet" href="war-room.css"></head>
+<body class="domain-body">
+<header class="topbar domain-topbar"><div class="brand"><h2>WORLD DOMINION V.I</h2><span>Global Civilization Network</span></div><nav class="main-nav" aria-label="Navigasi utama">
+      <div class="nav-menu"><details><summary>⌂ Home ▾</summary><div class="nav-dropdown"><a href="index.html">Dashboard</a><a href="inventory.html">Inventaris</a><a href="achievements.html">Pencapaian</a><a href="convoy.html">Konvoi</a></div></details></div>
+      <div class="nav-menu"><details><summary>🌍 Dunia ▾</summary><div class="nav-dropdown"><a href="world.html">Peta Dunia</a><a href="countries.html">Negara</a><a href="regions.html">Wilayah</a><a href="cities.html">Kota</a><a href="statistics.html">Statistik Dunia</a></div></details></div>
+      <div class="nav-menu"><details><summary>📈 Ekonomi ▾</summary><div class="nav-dropdown"><a href="market.html">Pasar Lokal</a><a href="global-market.html">Pasar Global</a><a href="forex.html">Valuta Asing</a><a href="jobs.html">Pekerjaan</a><a href="companies.html">Perusahaan</a><a href="contracts.html">Kontrak</a></div></details></div>
+      <div class="nav-menu"><details><summary>📰 Pers ▾</summary><div class="nav-dropdown"><a href="news.html">Berita Dunia</a><a href="my-newspaper.html">Koran Pribadi</a><a href="messages.html">Pesan Pribadi</a></div></details></div>
+      <div class="nav-menu"><details><summary>⚖ Politik ▾</summary><div class="nav-dropdown"><a href="parties.html">Partai Politik</a><a href="parliament.html">Parlemen</a><a href="elections.html">Pemilu</a><a href="organizations.html">Organisasi</a></div></details></div>
+      <div class="nav-menu"><details><summary>⚔ Perang ▾</summary><div class="nav-dropdown"><a href="defense.html">Pertahanan Negara</a><a href="war.html" class="nav-current" aria-current="page">Perang Dunia</a><a href="war-history.html">Riwayat Perang</a></div></details></div>
+      <div class="nav-menu"><details><summary>☰ Lainnya ▾</summary><div class="nav-dropdown"><a href="help.html">Panduan dan Bantuan</a><a href="rules.html">Peraturan</a><a href="premium.html">Premium</a></div></details></div>
+      </nav><div class="account-box"><div class="account-meta"><b id="domain-player-name">Pemain</b><span id="domain-player-level">Level 1</span></div></div></header>
+<main class="domain-main">
+<div id="wr-notfound" class="card" hidden><h1>Perang tidak ditemukan</h1><p class="muted">Ruang perang ini tidak ada atau sudah dihapus.</p><p class="top-gap"><a href="war.html" class="subtle-button" style="text-decoration:none;display:inline-block;padding:10px 15px">← Kembali ke Perang Dunia</a></p></div>
+<div id="wr-content" hidden>
+<div class="domain-heading"><div><p class="eyebrow">PERANG / RUANG PERANG</p><h1 id="wr-title">⚔️ PERTEMPURAN</h1><p class="muted" id="wr-subtitle">Ruang perang antar pemain — damage, perisai, dan chat pertempuran.</p></div><div class="domain-stat"><span>Status perang</span><b id="wr-status">—</b></div></div>
+<p><a href="war.html" class="subtle-button" style="text-decoration:none;display:inline-block;padding:10px 15px">← Kembali ke Perang Dunia</a></p>
+<section class="card section-gap"><div class="wr-score-row">
+<div class="wr-score-side atk"><div class="wr-side-name atk" id="wr-atk-name">Penyerang</div><div class="wr-score atk" id="wr-atk-score">0</div></div>
+<div class="wr-score-mid">TOTAL DAMAGE</div>
+<div class="wr-score-side def"><div class="wr-side-name def" id="wr-def-name">Bertahan</div><div class="wr-score def" id="wr-def-score">0</div></div>
+</div>
+<div class="wr-battle-bar" role="progressbar" aria-label="Perbandingan total damage"><div class="wr-battle-fill atk" id="wr-battle-fill-atk" style="width:50%"></div><div class="wr-battle-fill def" id="wr-battle-fill-def" style="width:50%"></div></div>
+<div class="wr-battle-pct"><span class="atk" id="wr-pct-atk">50%</span><span class="def" id="wr-pct-def">50%</span></div>
+<div id="wr-shields" class="top-gap"></div>
+<div class="top-gap" style="text-align:center"><button class="primary-button" id="wr-attack-btn" type="button" style="font-size:16px;padding:13px 34px">⚔️ SERANG</button><span class="muted" style="margin-left:10px">10 energi per serangan</span></div>
+<p class="muted" id="wr-attack-result" style="text-align:center"></p>
+</section>
+<div class="wr-grid3 section-gap">
+<section class="card"><h2>TOP 5 PENYERANG</h2><div id="wr-top-atk"></div></section>
+<section class="card"><h2>INFORMASI PERTEMPURAN</h2><div id="wr-info"></div><div class="top-gap"><button class="primary-button" id="wr-peace-btn" type="button">🕊️ TAWARKAN DAMAI</button></div><p class="muted tiny top-gap">(Hanya bisa untuk pemimpin perang)</p></section>
+<section class="card"><h2>TOP 5 BERTAHAN</h2><div id="wr-top-def"></div></section>
+</div>
+<section class="card section-gap"><div class="activity-grid">
+<div class="activity-tile"><span>Total Pemain</span><b id="wr-stat-players">—</b></div>
+<div class="activity-tile"><span>Total Damage</span><b id="wr-stat-dmg">—</b></div>
+<div class="activity-tile wr-stat-def"><span>Total Damage (Bertahan)</span><b id="wr-stat-dmg-def">—</b></div>
+<div class="activity-tile"><span>Rasio Damage</span><b id="wr-stat-ratio">—</b></div>
+<div class="activity-tile"><span>Waktu Perang</span><b id="wr-stat-time">—</b></div>
+</div></section>
+<div class="wr-grid2 section-gap">
+<section class="card"><h2>💬 Chat Ruang Perang</h2><div class="chat-box" id="wr-chat-box"></div><div class="chat-input"><input id="wr-chat-input" type="text" maxlength="300" placeholder="Tulis pesan untuk ruang perang ini..." autocomplete="off"><button id="wr-chat-send" type="button">Kirim</button></div><p class="muted tiny top-gap">Pesan tersimpan di perangkat ini, per ruang perang.</p></section>
+<section class="card"><h2>📜 Log Damage</h2><div id="wr-log"></div></section>
+</div>
+</div>
+</main><div id="domain-toast" class="toast" role="status"></div>
+<script src="core.js"></script>
+<script src="data/world-provinces.js"></script>
+<script src="worldlib.js"></script>
+<script src="wd-common.js"></script>
+<script src="news.js"></script>
+<script src="war-room.js"></script>
+
+</body></html>
