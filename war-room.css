@@ -1,0 +1,69 @@
+/* WORLD DOMINION V.I — RUANG PERANG (war-room.html)
+   Layout mengikuti screenshot referensi layar pertempuran (judul besar,
+   skor dua sisi, bar besar dua warna, Top 5, info pertempuran, statistik,
+   chat + log damage) — dibangun dengan gaya game ini sendiri (navy/gold).
+   Tidak ada teks/nama/aset yang dicopy dari referensi. */
+
+/* Skor penyerang vs bertahan */
+.wr-score-row{display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:center;flex-wrap:wrap}
+.wr-score-side{flex:1;min-width:140px}
+.wr-score-side.atk{text-align:left}
+.wr-score-side.def{text-align:right}
+.wr-side-name{font-size:13px;font-weight:bold;line-height:1.4}
+.wr-side-name.atk{color:var(--gold)}
+.wr-side-name.def{color:var(--blue)}
+.wr-score{font-size:34px;font-weight:bold;line-height:1.2}
+.wr-score.atk{color:var(--gold)}
+.wr-score.def{color:var(--blue)}
+.wr-score-mid{font-size:11px;color:var(--muted);font-weight:bold}
+
+/* Bar besar pertempuran: satu track, emas (penyerang) + biru (bertahan) */
+.wr-battle-bar{height:14px;background:#26364e;border-radius:10px;overflow:hidden;display:flex;margin-top:14px}
+.wr-battle-fill{height:100%;transition:width .3s}
+.wr-battle-fill.atk{background:var(--gold)}
+.wr-battle-fill.def{background:var(--blue)}
+.wr-battle-pct{display:flex;justify-content:space-between;font-size:13px;font-weight:bold;margin-top:6px}
+.wr-battle-pct .atk{color:var(--gold)}
+.wr-battle-pct .def{color:var(--blue)}
+
+/* Grid 3 kolom: Top 5 Penyerang | Info | Top 5 Bertahan */
+.wr-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media (max-width:900px){.wr-grid3{grid-template-columns:1fr}}
+
+/* Tabel Top 5 */
+.wr-table{width:100%;border-collapse:collapse;font-size:12px}
+.wr-table th{text-align:left;color:var(--muted);font-size:10px;font-weight:bold;padding:4px 6px;border-bottom:1px solid #26364e}
+.wr-table th:last-child,.wr-table td:last-child{text-align:right}
+.wr-table td{padding:7px 6px;border-bottom:1px solid #1b2a40;color:#e5eaf3}
+.wr-table td b.atk{color:var(--gold)}
+.wr-table td b.def{color:var(--blue)}
+.wr-table tr:last-child td{border-bottom:0}
+
+/* Statistik: pakai .activity-grid/.activity-tile dari dashboard.css */
+.wr-stat-def b{color:var(--blue) !important}
+
+/* Grid 2 kolom: Chat | Log Damage */
+.wr-grid2{display:grid;grid-template-columns:1.4fr 1fr;gap:12px}
+@media (max-width:900px){.wr-grid2{grid-template-columns:1fr}}
+
+/* Baris log damage */
+.wr-log-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;background:var(--panel-light);border:1px solid #293b55;border-radius:7px;font-size:12px;color:#e5eaf3;margin-bottom:8px}
+.wr-log-row small{color:var(--muted);font-size:10px;display:block;margin-top:3px;line-height:1.5}
+.wr-log-row b.dmg{color:var(--gold);white-space:nowrap}
+.wr-log-row b.dmg.def{color:var(--blue)}
+
+/* Latar ruang perang: kota saat perang dunia (gambar buatan sendiri: war-room-bg.webp)
+   + overlay gelap supaya teks tetap terbaca */
+body.domain-body{background:linear-gradient(rgba(5,9,16,.55),rgba(5,9,16,.68)),url("war-room-bg.webp") center/cover fixed}
+
+/* UI nyatu sama latar (kayak referensi): panel-panel transparan + blur,
+   latar kota perang kelihatan menembus panel. Scope khusus halaman ini. */
+body.domain-body .topbar{background:rgba(10,18,32,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body.domain-body .card{background:rgba(10,18,32,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-color:rgba(255,255,255,.1)}
+body.domain-body .domain-stat{background:rgba(10,18,32,.6);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-color:rgba(255,255,255,.1)}
+body.domain-body .activity-tile{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+body.domain-body .wr-log-row{background:rgba(13,22,38,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-color:rgba(255,255,255,.08)}
+body.domain-body .chat-box{background:rgba(11,21,37,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-color:rgba(255,255,255,.08)}
+body.domain-body .chat-input input{background:rgba(11,21,37,.7);border-color:rgba(255,255,255,.12);color:#e5eaf3}
+body.domain-body .subtle-button{background:rgba(38,54,78,.65);border-color:rgba(255,255,255,.12)}
+body.domain-body .shield-bar{background:rgba(38,54,78,.75)}
