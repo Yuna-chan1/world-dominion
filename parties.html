@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Partai Politik — World Dominion V.I</title><link rel="stylesheet" href="dashboard.css"></head>
+<body class="domain-body">
+<header class="topbar domain-topbar"><div class="brand"><h2>WORLD DOMINION V.I</h2><span>Global Civilization Network</span></div><nav class="main-nav" aria-label="Navigasi utama">
+      <div class="nav-menu"><details><summary>⌂ Home ▾</summary><div class="nav-dropdown"><a href="index.html">Dashboard</a><a href="inventory.html">Inventaris</a><a href="achievements.html">Pencapaian</a><a href="convoy.html">Konvoi</a></div></details></div>
+      <div class="nav-menu"><details><summary>🌍 Dunia ▾</summary><div class="nav-dropdown"><a href="world.html">Peta Dunia</a><a href="countries.html">Negara</a><a href="regions.html">Wilayah</a><a href="cities.html">Kota</a><a href="statistics.html">Statistik Dunia</a></div></details></div>
+      <div class="nav-menu"><details><summary>📈 Ekonomi ▾</summary><div class="nav-dropdown"><a href="market.html">Pasar Lokal</a><a href="global-market.html">Pasar Global</a><a href="forex.html">Valuta Asing</a><a href="jobs.html">Pekerjaan</a><a href="companies.html">Perusahaan</a><a href="contracts.html">Kontrak</a></div></details></div>
+      <div class="nav-menu"><details><summary>📰 Pers ▾</summary><div class="nav-dropdown"><a href="news.html">Berita Dunia</a><a href="my-newspaper.html">Koran Pribadi</a><a href="messages.html">Pesan Pribadi</a></div></details></div>
+      <div class="nav-menu"><details><summary>⚖ Politik ▾</summary><div class="nav-dropdown"><a href="parties.html" class="nav-current" aria-current="page">Partai Politik</a><a href="parliament.html">Parlemen</a><a href="elections.html">Pemilu</a><a href="organizations.html">Organisasi</a></div></details></div>
+      <div class="nav-menu"><details><summary>⚔ Perang ▾</summary><div class="nav-dropdown"><a href="defense.html">Pertahanan Negara</a><a href="war.html">Perang Dunia</a><a href="war-history.html">Riwayat Perang</a></div></details></div>
+      <div class="nav-menu"><details><summary>☰ Lainnya ▾</summary><div class="nav-dropdown"><a href="help.html">Panduan dan Bantuan</a><a href="rules.html">Peraturan</a><a href="premium.html">Premium</a></div></details></div>
+      </nav><div class="account-box"><div class="account-meta"><b id="domain-player-name">Pemain</b><span id="domain-player-level">Level 1</span></div></div></header>
+<main class="domain-main"><div class="domain-heading"><div><p class="eyebrow">POLITIK / PARTAI</p><h1>⚖️ Partai Politik</h1><p class="muted">Dirikan partai, bergabung dengan partai, dan bicara di kanal Partai.</p></div><div class="domain-stat"><span>Partai terdaftar</span><b id="stat-parties">—</b></div></div>
+<section class="card"><h2>➕ Dirikan Partai</h2><form id="party-form" class="wd-form"><label>Nama partai<input id="party-name" type="text" minlength="3" maxlength="40" required placeholder="Nama partai"></label><button class="primary-button" type="submit">Dirikan Partai</button></form></section>
+<section class="card"><h2>🎖️ Partaiku</h2><div class="wd-list" id="my-party"></div></section>
+<section class="card"><div class="domain-section-title"><h2>⚖️ Daftar Partai</h2><span class="muted">Satu pemain hanya bisa di satu partai</span></div><div class="wd-list" id="parties-list"></div></section>
+<section class="card"><h2>💬 Kanal Partai</h2><div class="wd-chat" id="party-chat"></div><div class="wd-form"><div class="wd-form-row"><input id="party-chat-input" type="text" maxlength="300" placeholder="Tulis pesan ke kanal Partai..."><button class="primary-button" id="party-chat-send" type="button">Kirim</button></div></div><p class="muted tiny top-gap">Pesan kanal Partai tersimpan lokal per akun (core.js).</p></section>
+</main><div id="domain-toast" class="toast" role="status"></div>
+<script src="core.js"></script>
+<script src="data/world-provinces.js"></script>
+<script src="worldlib.js"></script>
+<script src="wd-common.js"></script>
+<script src="news.js"></script>
+<script src="politics.js"></script>
+
+</body></html>

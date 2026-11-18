@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Dominion V.I — Build 0.9</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+<section id="login-screen" class="login-screen">
+  <div class="login-box">
+    <div class="logo">WORLD DOMINION</div>
+    <p>Version I · Civilization Simulation · Build 0.9</p>
+    <div class="auth-tabs" role="tablist" aria-label="Pilihan akun">
+      <button class="auth-tab active" id="show-login" type="button" role="tab" aria-selected="true">Masuk</button>
+      <button class="auth-tab" id="show-register" type="button" role="tab" aria-selected="false">Daftar</button>
+    </div>
+    <form id="login-form" class="auth-form">
+      <label for="login-username">Username</label>
+      <input id="login-username" type="text" maxlength="24" autocomplete="username" placeholder="Masukkan username" required>
+      <label for="login-password">Password</label>
+      <input id="login-password" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
+      <button class="primary-button full" type="submit">MASUK KE DUNIA</button>
+    </form>
+    <form id="register-form" class="auth-form hidden">
+      <label for="register-username">Username</label>
+      <input id="register-username" type="text" minlength="3" maxlength="24" autocomplete="username" placeholder="Buat username" required>
+      <label for="register-email">Email</label>
+      <input id="register-email" type="email" maxlength="80" autocomplete="email" placeholder="Masukkan email" required>
+      <label for="register-password">Password</label>
+      <input id="register-password" type="password" minlength="6" autocomplete="new-password" placeholder="Minimal 6 karakter" required>
+      <label for="register-confirm">Konfirmasi password</label>
+      <input id="register-confirm" type="password" minlength="6" autocomplete="new-password" placeholder="Ulangi password" required>
+      <button class="primary-button full" type="submit">BUAT AKUN</button>
+    </form>
+    <p id="auth-message" class="auth-message" role="status" aria-live="polite"></p>
+    <small class="login-note">Prototype Build 0.9 · Akun tersimpan di perangkat ini</small>
+  </div>
+</section>
+
+<div id="dashboard" class="dashboard hidden">
+  <header class="topbar">
+    <div class="brand">
+      <h2>WORLD DOMINION V.I</h2>
+      <span>Global Civilization Network</span>
+    </div>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <div class="nav-menu"><details><summary>⌂ Home ▾</summary><div class="nav-dropdown">
+        <a href="index.html">Dashboard</a><a href="inventory.html">Inventaris</a><a href="achievements.html">Pencapaian</a><a href="convoy.html">Konvoi</a>
+      </div></details></div>
+      <div class="nav-menu"><details><summary>🌍 Dunia ▾</summary><div class="nav-dropdown">
+        <a href="world.html">Peta Dunia</a><a href="countries.html">Negara</a><a href="regions.html">Wilayah</a><a href="cities.html">Kota</a><a href="statistics.html">Statistik Dunia</a>
+      </div></details></div>
+      <div class="nav-menu"><details><summary>📈 Ekonomi ▾</summary><div class="nav-dropdown">
+        <a href="market.html">Pasar Lokal</a><a href="global-market.html">Pasar Global</a><a href="forex.html">Valuta Asing</a><a href="jobs.html">Pekerjaan</a><a href="companies.html">Perusahaan</a><a href="contracts.html">Kontrak</a>
+      </div></details></div>
+      <div class="nav-menu"><details><summary>📰 Pers ▾</summary><div class="nav-dropdown">
+        <a href="news.html">Berita Dunia</a><a href="my-newspaper.html">Koran Pribadi</a><a href="messages.html">Pesan Pribadi</a>
+      </div></details></div>
+      <div class="nav-menu"><details><summary>⚖ Politik ▾</summary><div class="nav-dropdown">
+        <a href="parties.html">Partai Politik</a><a href="parliament.html">Parlemen</a><a href="elections.html">Pemilu</a><a href="organizations.html">Organisasi</a>
+      </div></details></div>
+      <div class="nav-menu"><details><summary>⚔ Perang ▾</summary><div class="nav-dropdown">
+        <a href="defense.html">Pertahanan Negara</a><a href="war.html">Perang Dunia</a><a href="war-history.html">Riwayat Perang</a>
+      </div></details></div>
+      <div class="nav-menu"><details><summary>☰ Lainnya ▾</summary><div class="nav-dropdown">
+        <a href="help.html">Panduan dan Bantuan</a><a href="rules.html">Peraturan</a><a href="premium.html">Premium</a>
+      </div></details></div>
+    </nav>
+    <div class="account-box">
+      <label class="avatar-wrap" for="avatar-input" title="Ganti foto profil">
+        <img id="profile-avatar" alt="Foto profil pemain" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='40' fill='%23263c59'/%3E%3Ccircle cx='40' cy='29' r='14' fill='%23e8bd68'/%3E%3Cpath d='M14 73c2-17 12-25 26-25s24 8 26 25' fill='%23e8bd68'/%3E%3C/svg%3E">
+        <span class="avatar-edit">+</span>
+      </label>
+      <input id="avatar-input" type="file" accept="image/*" hidden>
+      <div class="account-meta"><b id="account-name">Pemain Baru</b><span id="account-level">Level 1</span></div>
+    </div>
+  </header>
+
+  <main class="main-grid">
+    <aside class="column">
+      <section class="card">
+        <div class="country-banner"><div class="flag" id="player-flag">🏳️</div><div class="player-name" id="player-name">Pemain Baru</div><p class="muted" id="player-country-caption">Belum memiliki negara</p></div>
+        <div class="profile-info"><div id="player-area-label">📍 Daerah: Belum ditentukan</div><div id="player-country-label">🌍 Negara: Belum bernegara</div><div>⭐ Level: <b class="level" id="level-value">1</b></div></div>
+        <div id="exp-display" class="exp-panel"></div>
+        <h3 class="section-gap">⚡ Energi</h3>
+        <div class="energy-number"><b id="energy-value">100 / 100</b><span id="energy-percent" class="muted">100%</span></div>
+        <div class="bar"><div class="bar-fill" id="energy-fill"></div></div>
+        <div class="resource-list resource-gap"><div>🥤 Minuman energi <b id="energy-drinks">5</b></div><div>🍖 Makanan <b id="food-count">10</b></div></div>
+      </section>
+
+      <section class="card">
+        <h3>💰 Dompet</h3>
+        <div class="resource-list">
+          <div>Gold <b id="gold-value">100</b></div>
+          <div>Uang lokal <b id="local-money">1.000</b></div>
+          <div>Valuta asing <span class="wallet-action"><b id="foreign-money">0</b><a class="icon-link" href="forex.html" title="Buka penukaran valuta asing" aria-label="Buka valuta asing"><span>⇄</span></a></span></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>📊 Statistik Pemain</h3>
+        <div id="stats-list"></div>
+        <p class="muted tiny top-gap">Tiap statistik punya antrean sendiri. Kekuatan, Pendidikan, dan Ekonomi dapat ditingkatkan bersamaan (selama Gold mencukupi).</p>
+      </section>
+
+      <section class="card">
+        <h3>🎒 Inventaris Pemain</h3>
+        <p class="muted" id="inventory-capacity">Kapasitas: 0 / 500</p>
+        <div id="inventory-groups"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-heading"><h3>🚚 Konvoi</h3><a class="icon-link" href="convoy.html" aria-label="Buka domain konvoi" title="Buka domain konvoi">☰</a></div>
+        <p class="muted">Slot aktif: 0 / 3</p><br>
+        <div class="mission"><b>Slot 1</b><br><span class="muted">Belum tersedia konvoi</span></div>
+        <div class="mission"><b>Slot 2</b><br><span class="muted">Belum tersedia konvoi</span></div>
+        <div class="mission"><b>Slot 3</b><br><span class="muted">Belum tersedia konvoi</span></div>
+        <p class="muted tiny">Premium: +1 slot tambahan</p>
+      </section>
+    </aside>
+
+    <section class="column">
+      <section class="card" id="work-card">
+        <h3>💼 Pekerjaan Saat Ini</h3>
+        <div class="work-company"><b>VNT IRON Group</b><p class="muted">Perusahaan tempat bekerja</p></div>
+        <div class="work-details">
+          Status: <b class="status-online">Siap bekerja</b><br>
+          Produk: <b>Besi</b><br>
+          Energi kerja: <b id="work-energy-label">100 / 100</b><br>
+          Produksi dasar: <b>2 Besi / 10 energi</b>
+        </div>
+        <div class="work-stamina-wrap">
+          <div class="stamina-head"><b>⚡ Stamina kerja</b><span id="work-stamina-percent">100%</span></div>
+          <button id="work-stamina-button" class="stamina-track" type="button" title="Tekan untuk bekerja menggunakan seluruh energi yang cukup">
+            <span id="work-stamina-fill" class="stamina-fill"></span>
+            <span class="stamina-overlay" id="work-stamina-text">100 / 100 · KLIK UNTUK BEKERJA</span>
+          </button>
+          <p class="muted tiny">Setiap 10 energi menghasilkan 2 Besi. Sistem otomatis memakai seluruh energi yang cukup untuk bekerja.</p>
+        </div>
+        <div class="production-summary">
+          <div><span class="muted">Perkiraan produksi</span><b id="production-preview">20 Besi</b></div>
+          <div><span class="muted">Total buff bertingkat</span><b id="buff-total">+0%</b></div>
+        </div>
+        <details class="buff-details"><summary>Rincian sumber buff produksi</summary><div id="buff-breakdown" class="resource-list"></div></details>
+        <div class="work-details top-gap">
+          Estimasi upah sesi ini: <b id="salary-preview" class="salary">1 Gold</b><br>
+          Total Gold dari pekerjaan: <b id="salary-total" class="salary">0 Gold</b>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>💬 Ruang Komunikasi</h3>
+        <div class="chat-tabs"><button class="chat-tab active" type="button" data-chat-channel="Global">Global</button><button class="chat-tab" type="button" data-chat-channel="Region">Region</button><button class="chat-tab" type="button" data-chat-channel="Negara">Negara</button><button class="chat-tab" type="button" data-chat-channel="Partai">Partai</button></div>
+        <div class="chat-box" id="chat-box">
+          <div class="message"><b>System</b><p>Selamat datang di World Dominion V.I!</p></div>
+        </div>
+        <div class="chat-input"><input id="chat-message" type="text" maxlength="300" placeholder="Tulis pesan..."><button id="send-chat" type="button">➤</button></div>
+        <p class="muted tiny top-gap">Kanal bisa dipilih dan pesan tersimpan secara lokal. Pesan belum disiarkan ke pemain lain karena server multiplayer belum tersedia.</p>
+      </section>
+
+      <section class="card">
+        <div class="card-heading"><h3>📰 Berita Dunia</h3><a class="icon-link" href="news.html" aria-label="Buka domain pers" title="Buka domain pers">☰</a></div>
+        <div class="mission"><b>World News</b><p class="muted">Belum ada berita yang diterbitkan pemain.</p></div>
+        <div class="mission"><b>Informasi Sistem</b><p class="muted">Dunia baru akan segera berkembang.</p></div>
+      </section>
+    </section>
+
+    <aside class="column right-column">
+      <section class="card">
+        <h3>🏙️ Kota yang Ditempati</h3><div class="city-title" id="dashboard-city-title">Belum ditentukan</div><p class="muted" id="dashboard-city-country">Negara: Belum ditentukan</p>
+        <br><div class="score">1.0 / 10</div><p class="muted">Skor infrastruktur kota</p>
+        <div class="infrastructure">
+          <div class="infra-row"><div><span>🏥 Rumah sakit</span><b>1</b></div><div class="infra-bar"><div class="infra-fill"></div></div></div>
+          <div class="infra-row"><div><span>📚 Pendidikan</span><b>1</b></div><div class="infra-bar"><div class="infra-fill"></div></div></div>
+          <div class="infra-row"><div><span>🛡️ Militer</span><b>1</b></div><div class="infra-bar"><div class="infra-fill"></div></div></div>
+          <div class="infra-row"><div><span>🏭 Industri</span><b>1</b></div><div class="infra-bar"><div class="infra-fill"></div></div></div>
+          <div class="infra-row"><div><span>⚡ Listrik</span><b>1</b></div><div class="infra-bar"><div class="infra-fill"></div></div></div>
+        </div>
+      </section>
+      <section class="card">
+        <h3>👥 Kapasitas Wilayah</h3>
+        <div class="stat-row"><span>Populasi</span><b>0 / 100</b></div><div class="stat-row"><span>Status</span><b>Stabil</b></div>
+        <p class="muted top-gap">Kapasitas dan infrastruktur akan memengaruhi kondisi penduduk.</p>
+      </section>
+      <section class="card">
+        <h3>🗺️ Peta Mini Wilayah</h3><div class="mini-map" id="mini-map">PETA WILAYAH<br>BUILD 0.9</div><br><a class="primary-button full map-open-link" href="world.html">Buka Peta Dunia ↗</a><br>
+        <div class="resource-list"><div>👤 Pemain <b>0</b></div><div>🏛️ Negara <b>0</b></div><div>📍 Wilayah <b>0</b></div><div>🕊️ Wilayah merdeka <b>0</b></div><div>🏙️ Kota <b>0</b></div></div>
+      </section>
+      <section class="card">
+        <h3>🎯 Misi Pemain</h3><div id="missions-list"></div>
+      </section>
+    </aside>
+  </main>
+  <footer>WORLD DOMINION V.I · BUILD 0.9</footer>
+</div>
+
+<div id="item-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="item-modal-title">
+  <div class="modal-panel">
+    <button class="modal-close" data-close-modal aria-label="Tutup">×</button>
+    <div id="item-modal-icon" class="modal-item-icon">📦</div>
+    <h3 id="item-modal-title">Barang</h3>
+    <p class="muted">Jumlah tersedia: <b id="item-modal-count">0</b></p>
+    <p id="item-modal-description" class="modal-description"></p>
+    <button id="use-item-button" class="primary-button full" type="button">Gunakan 1 barang</button>
+  </div>
+</div>
+
+<div id="upgrade-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="upgrade-modal-title">
+  <div class="modal-panel">
+    <button class="modal-close" data-close-modal aria-label="Tutup">×</button>
+    <div class="modal-item-icon">⬆️</div>
+    <h3 id="upgrade-modal-title">Upgrade Statistik</h3>
+    <p id="upgrade-modal-description" class="modal-description"></p>
+    <div class="upgrade-cost"><span>Biaya</span><b id="upgrade-modal-cost">0 Gold</b></div>
+    <div class="upgrade-cost"><span>Waktu</span><b id="upgrade-modal-time">0 detik</b></div>
+    <button id="confirm-upgrade-button" class="primary-button full" type="button">Konfirmasi upgrade</button>
+  </div>
+</div>
+<div id="toast" class="toast" role="status"></div>
+
+<script src="core.js"></script>
+<script src="data/world-provinces.js"></script>
+<script src="worldlib.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>

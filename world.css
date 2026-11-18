@@ -1,0 +1,170 @@
+.world-body{--gold:#e8bd68;--panel:#111d30;--panel-light:#1b2a40;--border:#293950;--muted:#91a1b9}
+.world-main{max-width:1540px;padding-top:20px}.world-heading{align-items:center}.world-search-row{margin-bottom:14px;position:relative;z-index:5;padding:11px 14px}.world-search{display:flex;align-items:center;gap:10px;background:#0b1525;border:1px solid #34445d;border-radius:7px;padding:0 10px}.world-search>span{font-size:22px;color:var(--gold)}.world-search input{width:100%;min-width:0;border:0;outline:none;background:transparent;color:#fff;padding:12px 0}.world-search button{border:0;background:transparent;color:var(--muted);font-size:21px;padding:2px 5px}.search-hint{font-size:10px;color:var(--muted);margin:7px 4px 0}.search-results{position:absolute;left:14px;right:14px;top:calc(100% - 4px);max-height:260px;overflow:auto;padding:5px;background:#101a2b;border:1px solid #52647e;border-radius:7px;box-shadow:0 12px 30px #000a;z-index:30}.search-result{width:100%;display:flex;justify-content:space-between;gap:10px;text-align:left;padding:10px;background:transparent;border:0;border-radius:5px;color:#e5eaf3}.search-result:hover{background:var(--panel-light)}.search-result small{color:var(--muted)}
+.world-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(330px,.9fr);gap:14px;align-items:start}.world-map-column,.world-detail-column{display:flex;flex-direction:column;gap:14px;min-width:0}.map-card{padding:13px}.map-card-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:11px}.map-card-heading h2,.province-directory h2,.world-player-location h2{font-size:14px;color:var(--gold);margin-bottom:5px}.map-status{white-space:nowrap;color:#82d8b0;font-size:9px;font-weight:bold;letter-spacing:.6px;padding:7px 9px;border:1px solid #326a58;background:#142d2c;border-radius:20px}.map-status i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#67d8a5;margin-right:5px}.map-toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:9px}.zoom-controls{display:flex;align-items:center;gap:6px}.zoom-controls button,.subtle-button{padding:7px 10px;border:1px solid #3a4e68;border-radius:5px;background:#17263b;color:#dce5f2;font-size:10px}.zoom-controls button:hover,.subtle-button:hover{border-color:var(--gold);color:var(--gold)}.zoom-controls input{width:100px;accent-color:var(--gold)}.subtle-button{color:var(--gold)}.map-viewport{position:relative;width:100%;aspect-ratio:2/1;min-height:190px;overflow:hidden;border:1px solid #69717a;border-radius:7px;background:#34373d;isolation:isolate}.map-canvas{position:absolute;inset:0;transform-origin:50% 50%;transition:transform .25s ease;cursor:crosshair}.world-map-image{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;user-select:none;pointer-events:none}.map-wash{position:absolute;inset:0;background:#141a22;opacity:.07;pointer-events:none;transition:opacity .2s}.map-viewport[data-mode="resources"] .map-wash{opacity:.48;background:#10151d}.map-viewport[data-mode="war"] .map-wash{opacity:.19;background:#481c24}.map-viewport[data-mode="embargo"] .map-wash{opacity:.26;background:#1f2028}.map-viewport[data-mode="trade"] .map-wash{opacity:.12;background:#102b37}.map-overlay-label{position:absolute;color:#e1e4e7;text-shadow:0 1px 5px #000;font-size:clamp(7px,.65vw,10px);letter-spacing:1px;font-weight:bold;pointer-events:none;opacity:.7}.map-label-asia{left:79%;top:34%}.map-label-africa{left:49%;top:59%}.map-label-europe{left:51%;top:25%}.map-label-indonesia{left:85%;top:83%;color:#f5d88d;opacity:.95}.province-hotspots,.resource-pins,.war-pins{position:absolute;inset:0;pointer-events:none}.province-hotspot{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:13px;height:13px;border-radius:50%;border:2px solid #fff3c5;background:#d8a94e;box-shadow:0 0 0 3px #c8924040,0 1px 5px #000b;cursor:pointer;pointer-events:auto;padding:0;z-index:3}.province-hotspot:hover,.province-hotspot.selected{width:18px;height:18px;border-color:#fff;background:#55d6a1;box-shadow:0 0 0 5px #55d6a144,0 1px 8px #000}.province-hotspot::after{content:attr(data-short);position:absolute;left:13px;top:-4px;white-space:nowrap;background:#121a27e8;border:1px solid #7d8b9d;border-radius:3px;padding:2px 4px;font-size:8px;color:#fff;opacity:0;pointer-events:none}.province-hotspot:hover::after{opacity:1}.map-viewport[data-mode="resources"] .province-hotspot{opacity:.42}.map-viewport[data-mode="war"] .province-hotspot{border-color:#ff8d8d;background:#d9515d}.resource-pin,.war-pin{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);z-index:4;pointer-events:none;font-size:15px;filter:drop-shadow(0 1px 2px #000)}.war-pin{font-size:18px}.map-locked-hint{position:absolute;left:10px;bottom:10px;display:flex;flex-direction:column;gap:3px;padding:8px 10px;background:#111a28d9;border:1px solid #667284;border-radius:5px;pointer-events:none}.map-locked-hint span{font-size:14px}.map-locked-hint b{font-size:9px;color:#f2d38a}.map-locked-hint small{font-size:8px;color:#bdc8d8}.map-legend{display:flex;align-items:center;gap:15px;flex-wrap:wrap;padding:9px 2px 11px;font-size:9px;color:var(--muted)}.map-legend span{display:flex;align-items:center;gap:6px}.legend-dot{width:8px;height:8px;border-radius:50%;display:inline-block}.active-dot{background:#d8a94e}.locked-dot{background:#808890}.map-mode-area{border-top:1px solid #293950;padding-top:11px}.map-mode-title{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:10px;margin-bottom:8px}.map-mode-title b{color:#e7edf5}.map-modes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.map-mode{padding:9px 5px;border:1px solid #34445d;border-radius:5px;background:#17253a;color:#c4cfdf;font-size:10px}.map-mode:hover,.map-mode.active{border-color:var(--gold);color:var(--gold);background:#302b22}.mode-description{font-size:9px;color:var(--muted);margin-top:8px;line-height:1.5}.province-directory{padding:14px}.province-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}.province-group{background:#0d1728;border:1px solid #293950;border-radius:6px;padding:10px}.province-group h3{font-size:10px;color:var(--gold);margin-bottom:8px}.province-list{display:flex;flex-wrap:wrap;gap:5px}.province-chip{padding:6px 7px;background:#1b2a40;border:1px solid #354760;border-radius:4px;color:#d4deeb;font-size:9px}.province-chip:hover,.province-chip.selected{color:var(--gold);border-color:var(--gold)}
+.detail-card{padding:0;overflow:hidden}.detail-card-head{padding:15px 15px 12px;display:flex;justify-content:space-between;gap:10px;align-items:center;background:linear-gradient(120deg,#24374f,#111d30);border-bottom:1px solid #34445d}.detail-card-head h2{font-size:19px;color:#fff;margin:4px 0 5px}.region-flag{font-size:31px}.region-quick-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;padding:11px}.quick-stat{background:#0d1728;border:1px solid #293950;border-radius:5px;padding:8px}.quick-stat span{display:block;color:var(--muted);font-size:9px;margin-bottom:4px}.quick-stat b{font-size:12px;color:#e8edf5}.detail-tabs{display:flex;gap:5px;overflow-x:auto;padding:0 11px 10px;border-bottom:1px solid #293950;scrollbar-width:thin}.detail-tab{flex:none;background:#1a2a40;color:#b9c5d6;border:1px solid #34445d;border-radius:5px;padding:7px 9px;font-size:9px}.detail-tab.active,.detail-tab:hover{color:var(--gold);border-color:var(--gold);background:#302b22}.detail-content{padding:13px;min-height:390px}.detail-section-title{display:flex;justify-content:space-between;gap:7px;align-items:center;margin-bottom:10px}.detail-section-title h3{font-size:12px;color:#f0d08b}.detail-section-title small{font-size:9px;color:var(--muted)}.detail-copy{font-size:10px;line-height:1.6;color:#c4cfdf;margin:8px 0 12px}.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.info-tile{padding:9px;background:#0d1728;border:1px solid #293950;border-radius:5px}.info-tile span{display:block;font-size:9px;color:var(--muted);margin-bottom:5px}.info-tile b{font-size:12px;color:#e7edf5}.capacity-line{display:flex;justify-content:space-between;gap:8px;font-size:10px;margin:7px 0}.capacity-line b{color:var(--gold)}.capacity-bar,.requirement-bar{height:8px;border-radius:10px;background:#26364e;overflow:hidden}.capacity-bar i,.requirement-bar i{display:block;height:100%;background:linear-gradient(90deg,#4eaf8d,#e8bd68);border-radius:10px}.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:9px 0}.resource-entry{display:flex;justify-content:space-between;gap:5px;padding:7px;background:#0d1728;border:1px solid #293950;border-radius:5px;font-size:9px}.resource-entry b{color:var(--gold)}.recent-online{display:flex;gap:9px;align-items:center;padding:10px;margin-top:10px;background:#142a2a;border:1px solid #326354;border-radius:5px}.recent-online strong{font-size:18px;color:#7ad6a9}.recent-online span{font-size:9px;color:#bbd9cd}.revolt-box{margin-top:13px;padding:11px;background:#211b27;border:1px solid #63434e;border-radius:6px}.revolt-box h3{color:#e89a9a;font-size:11px;margin-bottom:7px}.revolt-box p{font-size:9px;color:#cbb8c0;line-height:1.5}.revolt-controls{display:flex;gap:7px;align-items:end;flex-wrap:wrap;margin:9px 0}.revolt-controls label,.travel-select-label{display:flex;flex-direction:column;gap:5px;color:var(--muted);font-size:9px}.revolt-controls input,.travel-select{max-width:140px;padding:8px;background:#0b1525;color:#f0f4f8;border:1px solid #46566e;border-radius:5px}.action-button{padding:9px 11px;border:1px solid #5a6c85;background:#273b54;color:#f3dfb7;border-radius:5px;font-size:9px;font-weight:bold}.action-button:hover{border-color:var(--gold);color:var(--gold)}.action-button:disabled{opacity:.5;cursor:not-allowed}.action-button.danger{background:#572d35;border-color:#9f5660;color:#ffe0e2}.small-note{font-size:9px;color:var(--muted);line-height:1.5;margin-top:7px}.status-pill{display:inline-block;padding:4px 7px;border-radius:20px;font-size:9px;background:#24394e;color:#bed4e5;border:1px solid #3c5870}.status-pill.open{background:#142e29;color:#91e0b6;border-color:#386a56}.status-pill.conditional{background:#332b1b;color:#efd08b;border-color:#76603b}.status-pill.closed{background:#3c2028;color:#f0a6ae;border-color:#79424b}.city-score{font-size:25px;color:var(--gold);font-weight:bold}.city-infra-row{margin:10px 0}.city-infra-head{display:flex;justify-content:space-between;font-size:9px;margin-bottom:4px;color:#cbd5e1}.city-infra-bar{height:6px;background:#26364e;border-radius:8px;overflow:hidden}.city-infra-bar i{display:block;height:100%;background:#65c9dc}.form-field{display:flex;flex-direction:column;gap:6px;margin:9px 0;color:var(--muted);font-size:9px}.form-field select,.form-field input{padding:9px;background:#0b1525;border:1px solid #46566e;border-radius:5px;color:#f1f5f9}.travel-tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:9px 0}.travel-tier{padding:8px 6px;border:1px solid #34445d;border-radius:5px;background:#0d1728;color:#e5eaf3;text-align:left;cursor:pointer}.travel-tier.selected{border-color:var(--gold);background:#302b22}.travel-tier b{display:block;font-size:10px;color:var(--gold);margin-bottom:4px}.travel-tier small{font-size:8px;color:var(--muted);line-height:1.4}.flight-summary{padding:10px;background:#0d1728;border:1px solid #34445d;border-radius:5px;font-size:9px;line-height:1.7;margin:9px 0}.flight-summary b{color:var(--gold)}.location-line{display:flex;justify-content:space-between;gap:9px;padding:9px 0;border-bottom:1px solid #293950;font-size:10px}.location-line span{color:var(--muted)}.location-line b{color:#e8edf5;text-align:right}.world-player-location{padding:14px}
+@media(max-width:1060px){.world-layout{grid-template-columns:minmax(0,1.25fr) minmax(300px,.9fr)}}
+@media(max-width:780px){.world-layout{grid-template-columns:minmax(0,1fr)}.world-detail-column{display:grid;grid-template-columns:1fr}.world-map-viewport{aspect-ratio:2/1}.detail-content{min-height:0}.world-heading{align-items:flex-start}.map-legend{gap:9px}}
+@media(max-width:520px){.world-main{padding:12px 8px 30px}.world-search-row{padding:9px}.map-card{padding:9px}.map-card-heading{align-items:flex-start}.map-card-heading h2{font-size:13px}.map-status{font-size:8px;padding:6px}.map-toolbar{flex-wrap:wrap}.zoom-controls input{width:70px}.map-viewport{min-height:175px}.map-modes{grid-template-columns:repeat(2,1fr)}.map-mode{padding:10px 5px}.province-groups{grid-template-columns:1fr}.province-directory{padding:11px}.detail-card-head{padding:12px}.region-quick-stats{padding:9px}.detail-tabs{padding:0 9px 9px}.detail-content{padding:10px}.info-grid{gap:6px}.revolt-controls input{max-width:110px}.travel-tier-grid{grid-template-columns:1fr}.world-player-location{padding:12px}.map-locked-hint{left:6px;bottom:6px;padding:6px}.map-locked-hint small{max-width:120px}}
+
+.map-label-indonesia{left:78%;top:81%}
+.map-viewport[data-mode="resources"] .world-map-image{filter:grayscale(1) contrast(1.08) brightness(.78)}
+.map-viewport[data-mode="resources"] .map-overlay-label{opacity:0}
+.world-avatar{display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:21px}
+.map-open-link{display:block;text-align:center;text-decoration:none;max-width:100%;font-size:10px}
+
+/* Polygon GIS provinsi: geometri GeoJSON resmi BIG, diproyeksikan pada area Indonesia di peta dunia. */
+.province-gis-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2}
+.province-gis-shape{fill:rgba(216,169,78,.25);stroke:#f4e2b7;stroke-width:.12;vector-effect:non-scaling-stroke;pointer-events:visiblePainted;cursor:pointer;transition:fill .15s,stroke-width .15s;outline:none}
+.province-gis-shape:hover,.province-gis-shape:focus{fill:rgba(91,213,164,.62);stroke:#fff;stroke-width:.28}
+.province-gis-shape.selected{fill:rgba(83,205,153,.54);stroke:#fff2c9;stroke-width:.24}
+.map-viewport[data-mode="resources"] .province-gis-shape{fill:rgba(180,190,198,.28);stroke:#dce2e8}
+.map-viewport[data-mode="war"] .province-gis-shape{fill:rgba(204,78,86,.2)}
+.map-viewport[data-mode="embargo"] .province-gis-shape{fill:rgba(177,155,181,.24)}
+.map-viewport[data-mode="trade"] .province-gis-shape{fill:rgba(67,174,193,.22)}
+.province-hotspots.gis-hotspots-fallback{display:none}
+.map-status.gis-loaded{color:#82e0b4}.map-status.gis-fallback{color:#e9c27a}
+
+/* BUILD 0.6 — IMMERSIVE WORLD MAP MODE (inspired by the supplied reference) */
+html:has(body.world-body),body.world-body{height:100%;min-height:100%;overflow:hidden;background:#071323}
+body.world-body{--gold:#e8c36e;--panel:#101c30;--panel-light:#192a43;--border:#344963;color:#e7edf7}
+.world-body .topbar{display:none!important}
+.world-body .world-main{position:fixed;inset:0;max-width:none;width:100%;height:100dvh;padding:0;margin:0;overflow:hidden}
+.world-body .world-heading,.world-body .province-directory,.world-body .world-player-location{display:none!important}
+.world-body .world-search-row{position:fixed;z-index:30;left:22px;top:74px;width:min(285px,calc(100vw - 44px));margin:0;padding:0;background:#09172bdc;border:1px solid #52647a;border-radius:7px;box-shadow:0 12px 35px #0008;backdrop-filter:blur(12px)}
+.world-body .world-search{border:0;background:transparent;padding:0 10px}.world-body .world-search input{padding:11px 0;font-size:12px}.world-body .world-search>span{font-size:19px}.world-body .search-hint{display:none}.world-body .search-results{left:0;right:0;top:100%;background:#0a1729f5}
+.world-body .world-layout{display:block;width:100%;height:100%;margin:0}
+.world-body .world-map-column{display:block;width:100%;height:100%}
+.world-body .map-card{position:absolute;inset:0;padding:0;border:0;border-radius:0;background:#071323;box-shadow:none;overflow:hidden}
+.world-body .map-card-heading{display:none}
+.world-body .map-toolbar{position:absolute;z-index:12;right:20px;top:18px;margin:0;padding:7px 9px;border:1px solid #52647a;border-radius:8px;background:#09172bdc;backdrop-filter:blur(10px);box-shadow:0 8px 25px #0007}
+.world-body .zoom-controls button,.world-body .subtle-button{background:#13243a;border-color:#52647a;color:#e6edf7;padding:8px 11px;font-size:12px}
+.world-body .zoom-controls input{width:86px}
+.world-body .map-viewport{position:absolute;inset:0;width:100%;height:100%;min-height:0;aspect-ratio:auto;border:0;border-radius:0;background:#071323}
+.world-body .map-canvas{transform-origin:0 0;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.world-body .world-map-image{filter:brightness(.43) saturate(.75) sepia(.12) hue-rotate(175deg) contrast(1.08);object-fit:fill}
+.world-body .map-wash{opacity:.48;background:linear-gradient(115deg,#06162c 0%,#0b2544 48%,#07172b 100%);mix-blend-mode:multiply}
+.world-body .map-overlay-label{opacity:.22;letter-spacing:3px;font-size:11px}
+.world-body .map-label-indonesia{opacity:.95;color:#f3d58b}
+.world-body .map-locked-hint{left:50%;top:50%;bottom:auto;transform:translate(-50%,-50%);padding:13px 18px;text-align:center;background:#08172bd9;border-color:#647b95;box-shadow:0 12px 36px #0008}
+.world-body .map-locked-hint span{font-size:21px}.world-body .map-locked-hint b{font-size:11px}.world-body .map-locked-hint small{font-size:9px}
+.world-body .map-legend{display:none}
+.world-body .map-mode-area{position:fixed;z-index:20;left:22px;bottom:20px;width:285px;padding:12px;background:#09172be8;border:1px solid #52647a;border-radius:8px;box-shadow:0 12px 35px #0008;backdrop-filter:blur(12px)}
+.world-body .map-mode-title{font-size:11px;margin-bottom:10px}.world-body .map-mode-title .muted{display:none}
+.world-body .map-modes{grid-template-columns:repeat(2,1fr);gap:6px}
+.world-body .map-mode{padding:10px 8px;text-align:left;background:#14263d;border-color:#3a506b;font-size:11px}
+.world-body .map-mode.active{background:#4b3d20;border-color:#d9b65f;color:#ffe4a2;box-shadow:inset 0 0 0 1px #d9b65f35}
+.world-body .mode-description{font-size:9px;line-height:1.4;margin-top:8px}
+.world-body .province-gis-layer{z-index:5}
+.world-body .province-gis-shape{fill:rgba(61,119,164,.30);stroke:#8ca9c4;stroke-width:.16;pointer-events:visiblePainted}
+.world-body .province-gis-shape:hover,.world-body .province-gis-shape:focus{fill:rgba(225,184,83,.65);stroke:#ffe6a4;stroke-width:.32}
+.world-body .province-gis-shape.selected{fill:rgba(213,166,65,.68);stroke:#ffe6a4;stroke-width:.34}
+.world-body .province-hotspot{width:10px;height:10px;background:#d7b15e;border-color:#fff0bd}
+.world-body .map-viewport[data-mode="resources"] .world-map-image{filter:grayscale(1) brightness(.5) contrast(1.1)}
+.world-body .map-viewport[data-mode="resources"] .map-wash{opacity:.62;background:#17202b}
+.world-body .map-viewport[data-mode="resources"] .map-overlay-label{opacity:0}
+.world-body .map-viewport[data-mode="resources"] .province-gis-shape{fill:rgba(186,198,208,.18);stroke:#e1e6ea}
+.world-body .map-viewport[data-mode="war"] .province-gis-shape{fill:rgba(183,63,74,.22)}
+.world-body .map-viewport[data-mode="embargo"] .province-gis-shape{fill:rgba(174,136,181,.24)}
+.world-body .map-viewport[data-mode="trade"] .province-gis-shape{fill:rgba(54,175,190,.24)}
+.world-body .world-detail-column{position:fixed;z-index:25;right:0;top:0;bottom:0;width:min(410px,94vw);padding:16px 14px 18px;background:linear-gradient(145deg,#0b1729f5,#101e32f2);border-left:1px solid #63758a;box-shadow:-18px 0 48px #0008;overflow-y:auto;transform:translateX(105%);opacity:0;pointer-events:none;transition:transform .28s ease,opacity .28s ease;backdrop-filter:blur(16px)}
+.world-body.region-panel-open .world-detail-column{transform:translateX(0);opacity:1;pointer-events:auto}
+.world-body .detail-card,.world-body .world-player-location{background:transparent;border:0;box-shadow:none;padding:0}
+.world-body .detail-card-head{padding:8px 2px 14px;border-bottom:1px solid #344963}
+.world-body .detail-card-head h2{font-size:22px;letter-spacing:.2px;color:#f1d28b}
+.world-body .detail-card-head .eyebrow{font-size:9px;letter-spacing:1.5px;color:#91a8c2}
+.world-body .region-flag{font-size:30px}
+.world-body .region-quick-stats{padding:12px 0;border-bottom:1px solid #344963}
+.world-body .detail-tabs{position:sticky;top:-16px;z-index:4;margin:0 -14px;padding:10px 12px;background:#101e32f5;display:flex;gap:6px;overflow-x:auto;border-bottom:1px solid #344963}
+.world-body .detail-tab{white-space:nowrap;padding:8px 10px;background:#182a42;border:1px solid #3b5069;border-radius:5px;font-size:10px}
+.world-body .detail-tab.active{background:#4a3b20;border-color:#d9b65f;color:#ffe4a2}
+.world-body .detail-content{padding:14px 2px;min-height:220px}
+.world-body .info-grid{gap:8px}
+.world-body .info-tile,.world-body .detail-section,.world-body .flight-summary{background:#14243a;border-color:#344963}
+.world-body .detail-content button{cursor:pointer}
+.world-body .map-status{position:fixed;z-index:22;left:50%;top:18px;transform:translateX(-50%);background:#09172bdc;border-color:#52647a;backdrop-filter:blur(10px)}
+.world-body .map-status.gis-fallback{color:#e9c27a}
+@media(max-width:700px){
+ .world-body .world-search-row{left:10px;top:12px;width:min(235px,calc(100vw - 20px))}
+ .world-body .map-toolbar{right:10px;top:62px;padding:5px}.world-body .zoom-controls input{width:48px}.world-body .zoom-controls button,.world-body .subtle-button{padding:7px 8px;font-size:10px}
+ .world-body .map-status{top:auto;bottom:180px;left:10px;transform:none;font-size:8px;padding:6px 8px}
+ .world-body .map-mode-area{left:10px;bottom:10px;width:min(235px,calc(100vw - 20px));padding:9px}.world-body .map-mode{padding:8px 6px;font-size:10px}.world-body .mode-description{display:none}
+ .world-body .world-detail-column{width:min(390px,100vw);padding:12px 10px}.world-body .detail-tabs{margin:0 -10px;top:-12px;padding:8px}
+ .world-body.region-panel-open .map-mode-area{opacity:.2;pointer-events:none}
+}
+.world-body .map-locked-hint{display:none}
+.world-body .detail-head-actions{display:flex;align-items:center;gap:12px}
+.world-body .close-region-panel{width:30px;height:30px;border:1px solid #52647a;border-radius:50%;background:#192b42;color:#eaf0f8;font-size:22px;line-height:1;cursor:pointer}
+.world-body .close-region-panel:hover{border-color:var(--gold);color:var(--gold)}
+/* VECTOR GIS ENGINE 2.0 — raster map removed from the rendering stack */
+.world-body .world-map-image{display:none!important}
+.world-body .map-canvas{inset:auto;overflow:visible;cursor:grab;transition:none!important}
+.world-body .map-canvas:active{cursor:grabbing}
+.world-body .world-country-layer,.world-body .province-gis-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block}
+.world-body .world-country-layer{z-index:1;pointer-events:auto}
+.world-body .world-country-shape{stroke:#8fa5bc;stroke-width:.65;vector-effect:non-scaling-stroke;opacity:.92;cursor:pointer;transition:fill .15s,opacity .15s}
+.world-body .world-country-shape:hover{stroke:#f2d58f;stroke-width:1.5;opacity:1;filter:brightness(1.25)}
+.world-body .map-wash{z-index:2;pointer-events:none;opacity:.24;background:linear-gradient(180deg,#07132630,#07132680);mix-blend-mode:multiply}
+.world-body .province-gis-layer{z-index:5;pointer-events:none}
+.world-body .province-gis-shape{pointer-events:visiblePainted;fill:rgba(34,130,183,.54);stroke:#d4e7f5;stroke-width:1.15;vector-effect:non-scaling-stroke;cursor:pointer}
+.world-body .province-gis-shape:hover,.world-body .province-gis-shape:focus{fill:rgba(235,184,67,.8);stroke:#fff0b8;stroke-width:2.2}
+.world-body .province-gis-shape.selected{fill:rgba(236,174,54,.82);stroke:#fff0b8;stroke-width:2.6}
+.world-body .province-hotspots{z-index:4}
+.world-body .map-overlay-label{z-index:3}
+.world-body .map-locked-hint{z-index:7}
+.world-body .map-viewport{cursor:grab;touch-action:none;user-select:none}
+.world-body .map-viewport:active{cursor:grabbing}
+.world-body .map-viewport[data-mode="resources"] .world-country-shape{filter:grayscale(1);opacity:.58}
+.world-body .map-viewport[data-mode="resources"] .province-gis-shape{fill:rgba(185,195,205,.3);stroke:#e7edf2}
+.world-body .map-viewport[data-mode="war"] .province-gis-shape{fill:rgba(183,63,74,.42)}
+.world-body .map-viewport[data-mode="embargo"] .province-gis-shape{fill:rgba(174,136,181,.4)}
+.world-body .map-viewport[data-mode="trade"] .province-gis-shape{fill:rgba(54,175,190,.4)}
+
+/* ===== BUILD 0.8 — WORLD ATLAS (peta abu-abu, dunia berputar) ===== */
+.world-body .map-viewport{background:#3f4148}
+#world-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;display:block}
+#world-svg use{pointer-events:none}
+.world-body .base-country{fill:#a4a5a9;stroke:#a4a5a9;stroke-width:calc(.6px*var(--inv,1));pointer-events:none}
+.world-body .country-border{fill:none;stroke:#fff;stroke-opacity:.92;stroke-width:calc(1.1px*var(--inv,1));stroke-linejoin:round;pointer-events:none}
+.world-body .province-gis-shape{vector-effect:none;fill:#a4a5a9;stroke:#f4f4f6;stroke-opacity:.8;stroke-width:calc(.55px*var(--inv,1));stroke-linejoin:round}
+.world-body .province-gis-shape.open{fill:#cfd0d5}
+.world-body .province-gis-shape.hover{stroke:#ffd666;stroke-opacity:1;stroke-width:calc(1.8px*var(--inv,1))}
+.world-body .province-gis-shape.selected{stroke:#ffd666;stroke-opacity:1;stroke-width:calc(2.4px*var(--inv,1))}
+.world-body .province-gis-shape.citizen-home{stroke:#4fd69c;stroke-opacity:1;stroke-width:calc(1.8px*var(--inv,1))}
+.world-body .province-gis-shape.player-here{stroke:#ff9d6b;stroke-opacity:1;stroke-width:calc(2px*var(--inv,1))}
+.scale-inv{transform:scale(var(--inv,1))}
+.pin-text{font-size:22px;filter:drop-shadow(0 2px 2px #0009)}
+.resource-icon{font-size:calc(15px*var(--inv,1));text-anchor:middle;dominant-baseline:central;pointer-events:none;paint-order:stroke;stroke:#0004;stroke-width:calc(1px*var(--inv,1))}
+.flag-name{font:700 11px system-ui,sans-serif;fill:#fff;paint-order:stroke;stroke:#000b;stroke-width:3px;stroke-linejoin:round}
+.world-body .province-hotspots,.world-body .map-wash{display:none}
+.map-tooltip{position:fixed;z-index:40;pointer-events:none;background:#0a1626ee;border:1px solid #6d819a;border-radius:6px;padding:6px 9px;color:#fff;display:flex;flex-direction:column;gap:2px;opacity:0;transition:opacity .1s;font-size:12px}
+.map-tooltip.show{opacity:1}.map-tooltip small{color:#a9bad0;font-size:10px}
+.world-body .map-status{display:none}.world-body .map-status.gis-fallback{display:flex;top:auto;bottom:22px;left:50%}
+.world-body .map-modes{grid-template-columns:repeat(2,1fr)}
+.world-body .map-legend{display:none}
+.province-groups{grid-template-columns:1fr}.province-group.dir-wide{width:100%}.province-list{max-height:220px;overflow-y:auto}
+.world-body.dir-open .province-directory{display:block!important;position:fixed;left:14px;top:128px;width:min(380px,92vw);max-height:calc(100vh - 150px);overflow-y:auto;z-index:21;background:#0b1729f5;border:1px solid #52647a;box-shadow:0 18px 48px #000a}
+.world-body.region-panel-open .map-toolbar{right:min(430px,96vw);top:64px}
+/* Form negara */
+.nation-form{display:grid;gap:10px;margin:12px 0}.nation-form label{display:grid;gap:4px;font-size:11px;color:#a9bad0}
+.nation-form input[type=text],.nation-form select{background:#0b1525;border:1px solid #344963;border-radius:6px;color:#e7edf7;padding:9px;font-size:12px}
+.nation-form input[type=color]{width:100%;height:36px;background:#0b1525;border:1px solid #344963;border-radius:6px;padding:2px}
+.nation-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;align-items:end}
+.flag-preview{display:flex;align-items:center;justify-content:center;padding:6px;background:#0b1525;border:1px solid #344963;border-radius:6px}
+/* Navigasi domain: dock kaca transparan agar peta tetap terlihat */
+body.world-body .topbar.domain-topbar{display:flex!important;position:fixed;z-index:35;top:12px;left:22px;right:auto;width:auto;min-height:0;padding:4px 5px;gap:4px;flex-wrap:nowrap;background:rgba(9,17,30,.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.16);border-radius:999px;opacity:.7;transition:opacity .2s,background .2s}
+body.world-body .topbar.domain-topbar:hover,body.world-body .topbar.domain-topbar:focus-within{opacity:1;background:rgba(9,17,30,.88)}
+body.world-body .topbar .brand{display:none}
+body.world-body .topbar .main-nav{flex-wrap:nowrap;gap:2px}
+body.world-body .topbar .nav-menu summary{padding:7px 11px;border:0;border-radius:999px;background:transparent;font-size:11px}
+body.world-body .topbar .nav-menu summary:hover,body.world-body .topbar .nav-menu details[open] summary{background:rgba(232,195,110,.16);color:var(--gold)}
+body.world-body .topbar .nav-dropdown{left:50%;right:auto;transform:translateX(-50%);top:calc(100% + 10px);background:rgba(10,20,36,.94);backdrop-filter:blur(10px);border-color:rgba(255,255,255,.18);border-radius:10px}
+body.world-body .topbar .account-box{min-width:0;padding:3px 10px 3px 4px;border-radius:999px;background:rgba(255,255,255,.07);border:0}
+body.world-body .topbar .account-meta span{display:none}.world-body .topbar .world-avatar{width:24px;height:24px;font-size:14px}
+.world-body .world-search-row{top:62px}
+@media(max-width:860px){body.world-body .topbar .nl,body.world-body .topbar .account-meta{display:none}body.world-body .topbar .nav-menu summary{padding:7px 9px;font-size:14px}}
+@media(max-width:700px){body.world-body .topbar.domain-topbar{left:10px;top:8px}.world-body .world-search-row{top:54px}.world-body.region-panel-open .map-toolbar{right:10px;top:auto;bottom:16px}}
+
+.map-setup{position:fixed;z-index:50;left:50%;top:50%;transform:translate(-50%,-50%);width:min(420px,92vw);padding:20px 22px;border-radius:14px;background:rgba(9,17,30,.96);border:1px solid #b79b5e;box-shadow:0 24px 60px #000b;color:#e7edf7;display:grid;gap:10px}
+.map-setup b{font-size:16px;color:#f2d58a}.map-setup p{margin:0;font-size:13px;line-height:1.5;color:#c3cfdf}.map-setup a{color:#8fc1ff;font-size:11px}
+.go-button{width:100%;padding:13px;font-size:14px;margin-top:10px}.go-reason{color:#f0b27a}
+.action-button.subtle{background:#16253b;color:#cfe0f5}

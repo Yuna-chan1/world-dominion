@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Dominion V.I — Peta Dunia</title>
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="world.css">
+</head>
+<body class="domain-body world-body">
+<header class="topbar domain-topbar">
+  <div class="brand"><h2>WORLD DOMINION V.I</h2><span>Global Civilization Network</span></div>
+  <nav class="main-nav" aria-label="Navigasi utama">
+    <div class="nav-menu"><details><summary><span class="ni">⌂</span><span class="nl"> Home ▾</span></summary><div class="nav-dropdown"><a href="index.html">Dashboard</a><a href="inventory.html">Inventaris</a><a href="achievements.html">Pencapaian</a><a href="convoy.html">Konvoi</a></div></details></div>
+    <div class="nav-menu"><details><summary><span class="ni">🌍</span><span class="nl"> Dunia ▾</span></summary><div class="nav-dropdown"><a class="nav-current" href="world.html">Peta Dunia</a><a href="countries.html">Negara</a><a href="regions.html">Wilayah</a><a href="cities.html">Kota</a><a href="statistics.html">Statistik Dunia</a></div></details></div>
+    <div class="nav-menu"><details><summary><span class="ni">📈</span><span class="nl"> Ekonomi ▾</span></summary><div class="nav-dropdown"><a href="market.html">Pasar Lokal</a><a href="global-market.html">Pasar Global</a><a href="forex.html">Valuta Asing</a><a href="jobs.html">Pekerjaan</a><a href="companies.html">Perusahaan</a><a href="contracts.html">Kontrak</a></div></details></div>
+    <div class="nav-menu"><details><summary><span class="ni">📰</span><span class="nl"> Pers ▾</span></summary><div class="nav-dropdown"><a href="news.html">Berita Dunia</a><a href="my-newspaper.html">Koran Pribadi</a><a href="messages.html">Pesan Pribadi</a></div></details></div>
+    <div class="nav-menu"><details><summary><span class="ni">⚖</span><span class="nl"> Politik ▾</span></summary><div class="nav-dropdown"><a href="parties.html">Partai Politik</a><a href="parliament.html">Parlemen</a><a href="elections.html">Pemilu</a><a href="organizations.html">Organisasi</a></div></details></div>
+    <div class="nav-menu"><details><summary><span class="ni">⚔</span><span class="nl"> Perang ▾</span></summary><div class="nav-dropdown"><a href="defense.html">Pertahanan Negara</a><a href="war.html">Perang Dunia</a><a href="war-history.html">Riwayat Perang</a></div></details></div>
+    <div class="nav-menu"><details><summary><span class="ni">☰</span><span class="nl"> Lainnya ▾</span></summary><div class="nav-dropdown"><a href="help.html">Panduan dan Bantuan</a><a href="rules.html">Peraturan</a><a href="premium.html">Premium</a></div></details></div>
+  </nav>
+  <div class="account-box"><div class="avatar-wrap world-avatar">🌐</div><div class="account-meta"><b id="domain-player-name">Pemain</b><span id="domain-player-level">Level 1</span></div></div>
+</header>
+
+<main class="domain-main world-main">
+  <div class="domain-heading world-heading">
+    <div><p class="eyebrow">DUNIA / PETA INTERAKTIF</p><h1>🌍 Navigasi Dunia</h1><p class="muted">Peta dunia nyata: pilih provinsi di seluruh dunia, periksa sumber daya, politik, ekonomi, dan terbang ke mana saja.</p></div>
+    <div class="domain-stat"><span>Wilayah yang dapat dijelajahi</span><b id="world-stat-total">Memuat…</b></div>
+  </div>
+
+  <section class="world-search-row card">
+    <label class="world-search" for="province-search"><span>⌕</span><input id="province-search" type="search" autocomplete="off" placeholder="Cari provinsi, negara, atau benua..."><button id="clear-search" type="button" aria-label="Bersihkan pencarian">×</button></label>
+    <div class="search-hint" id="search-hint">Coba: Sumatera Barat, Texas, Bavaria, Hokkaido, atau nama negara.</div>
+    <div id="search-results" class="search-results hidden"></div>
+  </section>
+
+  <div class="world-layout">
+    <section class="world-map-column">
+      <section class="card map-card">
+        <div class="map-card-heading"><div><h2>🗺️ Peta Dunia</h2><p class="muted">Seret untuk menggeser tanpa batas, scroll untuk zoom.</p></div><span class="map-status" id="gis-map-status"><i></i> MEMUAT PETA…</span></div>
+        <div class="map-toolbar"><div class="zoom-controls"><button id="zoom-out" type="button" aria-label="Perkecil peta">−</button><input id="zoom-range" type="range" min="1" max="24" step="0.1" value="1" aria-label="Zoom peta"><button id="zoom-in" type="button" aria-label="Perbesar peta">＋</button><button id="zoom-reset" type="button">Reset</button></div><div style="display:flex;gap:6px"><button id="toggle-directory" class="subtle-button" type="button">☰ Direktori</button><button id="focus-indonesia" class="subtle-button" type="button">◎ Lokasi saya</button></div></div>
+        <div class="map-viewport" id="map-viewport">
+          <div class="map-canvas" id="map-canvas">
+            <svg id="world-svg" viewBox="0 0 1000 500" overflow="visible" role="group" aria-label="Peta dunia vektor yang berputar tanpa batas">
+              <use id="use-left" href="#world-main" x="-1000"/>
+              <g id="world-shift"><g id="world-main">
+                <g id="base-layer"></g><g id="province-layer"></g><g id="country-border-layer"></g><g id="resource-layer"></g><g id="flag-layer"></g><g id="pin-layer"></g>
+              </g></g>
+              <use id="use-right" href="#world-main" x="1000"/>
+            </svg>
+          </div>
+        </div>
+        <div class="map-legend"><span><i class="legend-dot active-dot"></i> Terbuka (Indonesia)</span><span><i class="legend-dot locked-dot"></i> Wilayah terkunci</span><span id="mode-legend">Mode: Politik wilayah</span></div>
+        <div class="map-mode-area"><div class="map-mode-title"><b>⌖ Lapisan Peta</b><span class="muted">Peta akan menyesuaikan tampilan</span></div><div class="map-modes" role="group" aria-label="Lapisan peta"><button type="button" class="map-mode active" data-map-mode="political">🏴 Politik</button><button type="button" class="map-mode" data-map-mode="resources">⛏ Sumber daya</button><button type="button" class="map-mode" data-map-mode="war">⚔ Perang</button><button type="button" class="map-mode" data-map-mode="embargo">🚫 Embargo</button><button type="button" class="map-mode" data-map-mode="trade">⇄ Perdagangan</button></div><div id="mode-description" class="mode-description">Menampilkan area konflik dan wilayah yang terdampak perang.</div></div>
+      </section>
+
+      <section class="card province-directory" id="province-directory">
+        <div class="domain-section-title"><div><h2>📍 Direktori Wilayah Dunia</h2><p class="muted">Pilih benua, negara, lalu provinsi jika bentuk pada peta terlalu kecil.</p></div><span class="muted" id="dir-count"></span></div>
+        <div id="province-groups" class="province-groups"></div>
+      </section>
+    </section>
+
+    <aside class="world-detail-column">
+      <section class="card detail-card" id="region-detail-card">
+        <div class="detail-card-head"><div><p class="eyebrow">PANEL INFORMASI WILAYAH</p><h2 id="selected-province-name">DKI Jakarta</h2><p id="selected-province-meta" class="muted">Indonesia · Pesisir dan daratan</p></div><div class="detail-head-actions"><span class="region-flag">🇮🇩</span><button id="close-region-panel" class="close-region-panel" type="button" aria-label="Tutup panel wilayah">×</button></div></div>
+        <div class="region-quick-stats" id="region-quick-stats"></div>
+        <div class="detail-tabs" role="tablist" aria-label="Navigasi informasi wilayah">
+          <button type="button" class="detail-tab active" data-detail-tab="summary">Ringkasan</button>
+          <button type="button" class="detail-tab" data-detail-tab="city">Kota</button>
+          <button type="button" class="detail-tab" data-detail-tab="politics">Politik</button>
+          <button type="button" class="detail-tab" data-detail-tab="border">Perbatasan</button>
+          <button type="button" class="detail-tab" data-detail-tab="citizenship">Kewarganegaraan</button>
+          <button type="button" class="detail-tab" data-detail-tab="travel">Perjalanan</button>
+        </div>
+        <div id="detail-content" class="detail-content"></div>
+      </section>
+      <section class="card world-player-location">
+        <h2>🧭 Lokasi Pemain</h2><div class="location-line"><span>Lokasi sekarang</span><b id="player-current-location">—</b></div><div class="location-line"><span>Kewarganegaraan</span><b id="player-citizenship">Belum ditetapkan</b></div><div class="location-line"><span>Gold tersedia</span><b id="player-gold">100</b></div><div class="location-line"><span>Uang lokal</span><b id="player-local-money">1.000</b></div><p class="muted tiny top-gap">Semua jumlah penduduk, perusahaan, dan aktivitas pada peta adalah data simulasi (Build 0.8); batas wilayah berasal dari Natural Earth.</p>
+      </section>
+    </aside>
+  </div>
+</main>
+<div id="map-tooltip" class="map-tooltip"></div>
+<div id="world-toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="core.js"></script>
+<script src="data/world-provinces.js"></script>
+<script src="worldlib.js"></script>
+<script src="tools/province-builder.js"></script>
+<script src="world.js"></script>
+</body>
+</html>

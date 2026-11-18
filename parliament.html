@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Parlemen — World Dominion V.I</title><link rel="stylesheet" href="dashboard.css"></head>
+<body class="domain-body">
+<header class="topbar domain-topbar"><div class="brand"><h2>WORLD DOMINION V.I</h2><span>Global Civilization Network</span></div><nav class="main-nav" aria-label="Navigasi utama">
+      <div class="nav-menu"><details><summary>⌂ Home ▾</summary><div class="nav-dropdown"><a href="index.html">Dashboard</a><a href="inventory.html">Inventaris</a><a href="achievements.html">Pencapaian</a><a href="convoy.html">Konvoi</a></div></details></div>
+      <div class="nav-menu"><details><summary>🌍 Dunia ▾</summary><div class="nav-dropdown"><a href="world.html">Peta Dunia</a><a href="countries.html">Negara</a><a href="regions.html">Wilayah</a><a href="cities.html">Kota</a><a href="statistics.html">Statistik Dunia</a></div></details></div>
+      <div class="nav-menu"><details><summary>📈 Ekonomi ▾</summary><div class="nav-dropdown"><a href="market.html">Pasar Lokal</a><a href="global-market.html">Pasar Global</a><a href="forex.html">Valuta Asing</a><a href="jobs.html">Pekerjaan</a><a href="companies.html">Perusahaan</a><a href="contracts.html">Kontrak</a></div></details></div>
+      <div class="nav-menu"><details><summary>📰 Pers ▾</summary><div class="nav-dropdown"><a href="news.html">Berita Dunia</a><a href="my-newspaper.html">Koran Pribadi</a><a href="messages.html">Pesan Pribadi</a></div></details></div>
+      <div class="nav-menu"><details><summary>⚖ Politik ▾</summary><div class="nav-dropdown"><a href="parties.html">Partai Politik</a><a href="parliament.html" class="nav-current" aria-current="page">Parlemen</a><a href="elections.html">Pemilu</a><a href="organizations.html">Organisasi</a></div></details></div>
+      <div class="nav-menu"><details><summary>⚔ Perang ▾</summary><div class="nav-dropdown"><a href="defense.html">Pertahanan Negara</a><a href="war.html">Perang Dunia</a><a href="war-history.html">Riwayat Perang</a></div></details></div>
+      <div class="nav-menu"><details><summary>☰ Lainnya ▾</summary><div class="nav-dropdown"><a href="help.html">Panduan dan Bantuan</a><a href="rules.html">Peraturan</a><a href="premium.html">Premium</a></div></details></div>
+      </nav><div class="account-box"><div class="account-meta"><b id="domain-player-name">Pemain</b><span id="domain-player-level">Level 1</span></div></div></header>
+<main class="domain-main"><div class="domain-heading"><div><p class="eyebrow">POLITIK / PARLEMEN</p><h1>🏛️ Parlemen</h1><p class="muted">Usulkan undang-undang, beri suara, dan sahkan UU yang didukung mayoritas.</p></div><div class="domain-stat"><span>UU disahkan</span><b id="stat-laws">—</b></div></div>
+<section class="card"><h2>📜 Usulkan UU</h2><form id="law-form" class="wd-form"><div class="wd-form-row"><label>Jenis UU<select id="law-type"><option>Pajak Penghasilan</option><option>Pajak Produksi</option><option>Pajak Impor</option><option>Pajak Ekspor</option><option>Status Perbatasan</option><option>Pajak Perang</option></select></label><label>Nilai / pilihan<input id="law-value" type="text" maxlength="80" required placeholder="Mis. 10% atau Tertutup"></label></div><button class="primary-button" type="submit">Ajukan ke Parlemen</button></form><p class="muted tiny top-gap">UU disahkan jika suara Ya lebih banyak dari Tidak (minimal 1 suara). UU yang disahkan tercatat ke pencapaian &ldquo;Pembuat Kebijakan&rdquo;.</p></section>
+<section class="card"><div class="domain-section-title"><h2>🗳️ Usulan UU yang Dibahas</h2><span class="muted">Satu suara per pemain per UU</span></div><div class="wd-list" id="laws-list"></div></section>
+<section class="card"><div class="domain-section-title"><h2>✅ UU yang Disahkan</h2></div><div class="wd-list" id="passed-laws"></div></section>
+</main><div id="domain-toast" class="toast" role="status"></div>
+<script src="core.js"></script>
+<script src="data/world-provinces.js"></script>
+<script src="worldlib.js"></script>
+<script src="wd-common.js"></script>
+<script src="news.js"></script>
+<script src="politics.js"></script>
+
+</body></html>

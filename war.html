@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Perang Dunia — World Dominion V.I</title><link rel="stylesheet" href="dashboard.css"></head>
+<body class="domain-body">
+<header class="topbar domain-topbar"><div class="brand"><h2>WORLD DOMINION V.I</h2><span>Global Civilization Network</span></div><nav class="main-nav" aria-label="Navigasi utama">
+      <div class="nav-menu"><details><summary>⌂ Home ▾</summary><div class="nav-dropdown"><a href="index.html">Dashboard</a><a href="inventory.html">Inventaris</a><a href="achievements.html">Pencapaian</a><a href="convoy.html">Konvoi</a></div></details></div>
+      <div class="nav-menu"><details><summary>🌍 Dunia ▾</summary><div class="nav-dropdown"><a href="world.html">Peta Dunia</a><a href="countries.html">Negara</a><a href="regions.html">Wilayah</a><a href="cities.html">Kota</a><a href="statistics.html">Statistik Dunia</a></div></details></div>
+      <div class="nav-menu"><details><summary>📈 Ekonomi ▾</summary><div class="nav-dropdown"><a href="market.html">Pasar Lokal</a><a href="global-market.html">Pasar Global</a><a href="forex.html">Valuta Asing</a><a href="jobs.html">Pekerjaan</a><a href="companies.html">Perusahaan</a><a href="contracts.html">Kontrak</a></div></details></div>
+      <div class="nav-menu"><details><summary>📰 Pers ▾</summary><div class="nav-dropdown"><a href="news.html">Berita Dunia</a><a href="my-newspaper.html">Koran Pribadi</a><a href="messages.html">Pesan Pribadi</a></div></details></div>
+      <div class="nav-menu"><details><summary>⚖ Politik ▾</summary><div class="nav-dropdown"><a href="parties.html">Partai Politik</a><a href="parliament.html">Parlemen</a><a href="elections.html">Pemilu</a><a href="organizations.html">Organisasi</a></div></details></div>
+      <div class="nav-menu"><details><summary>⚔ Perang ▾</summary><div class="nav-dropdown"><a href="defense.html">Pertahanan Negara</a><a href="war.html" class="nav-current" aria-current="page">Perang Dunia</a><a href="war-history.html">Riwayat Perang</a></div></details></div>
+      <div class="nav-menu"><details><summary>☰ Lainnya ▾</summary><div class="nav-dropdown"><a href="help.html">Panduan dan Bantuan</a><a href="rules.html">Peraturan</a><a href="premium.html">Premium</a></div></details></div>
+      </nav><div class="account-box"><div class="account-meta"><b id="domain-player-name">Pemain</b><span id="domain-player-level">Level 1</span></div></div></header>
+<main class="domain-main"><div class="domain-heading"><div><p class="eyebrow">PERANG / PERANG DUNIA</p><h1>⚔️ Perang Dunia</h1><p class="muted">Nyatakan perang terhadap negara lain dan serang sampai kekuatannya habis.</p></div><div class="domain-stat"><span>Perang aktif</span><b id="stat-wars">—</b></div></div>
+<div class="notice-panel"><b>Simulasi lokal:</b> perang berjalan di perangkat ini saja. Lawan sungguhan adalah negara yang didirikan pemain lain di perangkat ini; kalau belum ada, gunakan musuh simulasi (NPC) yang jelas diberi label.</div>
+<section class="card"><div class="domain-section-title"><h2>🎯 Nyatakan Perang</h2></div><div class="wd-list" id="enemies-list"></div><div class="wd-actions top-gap"><button class="primary-button" id="sim-rival-btn" type="button">Buat Musuh Simulasi (NPC, kekuatan 50)</button></div></section>
+<section class="card"><div class="domain-section-title"><h2>⚔️ Perang Aktif</h2><span class="muted">Serangan butuh 10 energi</span></div><div class="wd-list" id="wars-list"></div><p class="muted" id="war-result"></p></section>
+</main><div id="domain-toast" class="toast" role="status"></div>
+<script src="core.js"></script>
+<script src="data/world-provinces.js"></script>
+<script src="worldlib.js"></script>
+<script src="wd-common.js"></script>
+<script src="news.js"></script>
+<script src="politics.js"></script>
+
+</body></html>
